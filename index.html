@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Bonding Event Finder</title>
+    <script src="script.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 24px;
+        }
+        .container {
+            display: flex;
+        }
+        .left-nav {
+            width: 30%;
+            padding: 15px;
+            background-color: #f1f1f1;
+        }
+        .right-panel {
+            width: 70%;
+            display: flex;
+            gap: 20px;
+            padding: 15px;
+        }
+        .column {
+            flex: 1;
+            text-align: center;
+        }
+        img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="banner">Welcome to Team Bonding Event Finder</div>
+
+    <div class="container">
+        <aside class="left-nav">
+            <h3>Category: </h3>
+            <input type="checkbox" name="category" value="All" checked> All<br>
+            <input type="checkbox" name="category" value="Adventure"> Adventure<br>
+            <input type="checkbox" name="category" value="Culinary"> Culinary<br>
+            <input type="checkbox" name="category" value="Sport"> Sport<br>
+            <input type="checkbox" name="category" value="Technology"> Technology<br>
+            <input type="checkbox" name="category" value="Other"> Other<br>  
+          <!--  <input type="text" name="category" id="cat_input"><br> -->
+       
+            <br>    
+            <h3>Group Size: </h3>
+            <input type="checkbox" name="groupsize" value="No limit" checked> No limit<br>
+            <input type="checkbox" name="groupsize" value="25"> <= 25 people<br>
+            <input type="checkbox" name="groupsize" value="50"> <= 50 people<br>
+            <input type="checkbox" name="groupsize" value="100"> <= 100 people<br>
+            <input type="checkbox" name="groupsize" value="101"> > 100 people<br>
+            <br>
+         <h3>Payment Mode: </h3>
+            <input type="checkbox" name="payment" value="All" checked> All modes<br>
+            <input type="checkbox" name="payment" value="vendorgov"> Vendor@gov<br>
+            <input type="checkbox" name="payment" value="einvoice"> E-Invoice<br>
+            <input type="checkbox" name="payment" value="Other"> Other<br> 
+        <!--    <input type="text" name="payment" id="pay_input"><br>
+        -->
+        <br>    
+        <button onclick="ReqSubmit()">Apply Filters</button>
+        
+    </aside>
+
+        <main class="right-panel">
+            <div class="column">
+                <img src="image1.jpg" alt="Image 1">
+                <p>Description for Image 1</p>
+            </div>
+            <div class="column">
+                <img src="image2.jpg" alt="Image 2">
+                <p>Description for Image 2</p>
+            </div>
+            <div class="column">
+                <img src="image3.jpg" alt="Image 3">
+                <p>Description for Image 3</p>
+            </div>
+            <br>
+            
+        </main>
+         <p id="result"></p>
+         <p id="sizeresult"></p>
+         <p id="paymresult"></p>
+        
+    </div>
+
+</body>
+</html>
