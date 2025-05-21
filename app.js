@@ -8,15 +8,17 @@ function applyFilters() {
   const category = document.querySelector('input[name="category"]:checked')?.value || "";
   const groupSize = document.querySelector('input[name="groupsize"]:checked')?.value || "";
   const payment = document.querySelector('input[name="payment"]:checked')?.value || "";
-
+  
   // Show summary
-  //const summary = document.getElementById("selectionSummary");
-  /*summary.innerHTML = `
-    <strong>Selected Filters:</strong><br>
-    Category: ${category || "None"}<br>
-    Group Size: ${groupSize || "None"}<br>
-    Payment Mode: ${payment || "None"}
-  `;*/
+  // const summary = document.getElementById("selectionSummary");
+  // summary.innerHTML = `
+  //   <strong>Selected Filters:</strong><br>
+  //   Category: ${category || "None"}<br>
+  //   Group Size: ${groupSize || "None"}<br>
+  //   Payment Mode: ${payment || "None"}
+  // `;
+
+
 
   // Filter logic
   filteredEvents = events.filter(event => {
@@ -82,6 +84,7 @@ function resetFilters() {
   currentPage = 0;
   renderEvents();
 }
+
 
 function prevPage() {
   if (currentPage > 0) {

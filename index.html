@@ -7,7 +7,8 @@
  <!-- <link href="https://fonts.googleapis.com/css2?family=SamsungOne&display=swap" rel="stylesheet"/> -->
   <link rel="stylesheet" href="public/css/style.css"/>
 </head>
-<body>
+<body onload=applyFilters()>
+  
   <div class="banner" >Welcome to Team Bonding Event Finder</div>
 
   <div class="container">
@@ -31,22 +32,23 @@
 <BR>
   <BR>
       <button class="button" onclick="applyFilters()">Apply Filters</button>
-      <button class="button reset" onclick="resetFilters()">Reset</button>
+      <button class="button reset" onclick="resetFilters()">Reset Filters</button>
       
     </aside>
 
 
 <!-- Right panel section (inside <main class="right-panel">) -->
 <main class="right-panel">
-  <div id="selectionSummary" class="selection-summary"></div>
+  <div id="selectionSummary">hello</div>
   <table id="eventTable" class="event-table"></table>
   <div class="pagination">
     <button class="button" onclick="prevPage()">Prev</button>
     <button class="button" onclick="nextPage()">Next</button>
-  </div>
-</main>
-  </div>
+  </div> 
 
+  
+</main>
+ 
   <script src="event.js"></script>
   <script src="app.js"></script>
   

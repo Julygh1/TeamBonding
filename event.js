@@ -89,7 +89,7 @@ const events = [
     event_hour: 8,
     category: "adventure",
     payment: ["einvoice", "creditcard"],
-    image: "public/images/drone_racing.jpg",
+    image: "public/images/BuildandRace.jpg",
     event_org_id: "ORG101",
     organiser_name: "Funworks",
     organiser_website: "https://funworks.sg/",

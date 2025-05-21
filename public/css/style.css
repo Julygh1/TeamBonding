@@ -74,14 +74,14 @@ body {
   padding: 20px;
 }
 
-.selection-summary {
+/* .selection-summary {
   background: #e9ecef;
   padding: 15px;
   border-radius: 10px;
   margin-bottom: 20px;
   font-size: 14px;
   color: #333;
-}
+} */
 
 .event-table {
   width: 100%;

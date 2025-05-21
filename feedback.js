@@ -10,6 +10,62 @@ const feedbacks = [
 
     {
     event_id: "EVT001",
+    description: "The lip balm workshop was a delightful experience, combining creativity, learning, and hands-on fun. The instructors were incredibly knowledgeable and engaging, guiding participants through the process with clear, easy-to-follow steps. The variety of high-quality ingredients allowed for exciting customization, making each lip balm unique and personal. The atmosphere was welcoming and interactive, encouraging collaboration and experimentation. The beautifully presented final products added to the sense of accomplishment. Overall, it was an enriching and enjoyable session, perfect for anyone interested in DIY skincare. A fantastic blend of education and creativity that left participants inspired!",
+    star: "5",
+    comp_name: "GovTech",
+    feedbackdate : "10/12/2024"
+   },
+
+   
+    {
+    event_id: "EVT001",
+    description: "The hands-on approach made it engaging and helped participants truly understand the process",
+    star: "5",
+    comp_name: "GovTech",
+    feedbackdate : "10/02/2024"
+   },
+  {
+    event_id: "EVT001",
+    description: "Clear, step-by-step instructions made it easy to follow, even for beginners.",
+    star: "5",
+    comp_name: "GovTech",
+    feedbackdate : "10/12/2024"
+   },
+
+   {
+    event_id: "EVT001",
+    description: "Offering printed instructions or a digital guide would allow participants to recreate their lip balm at home",
+    star: "4",
+    comp_name: "GovTech",
+    feedbackdate : "10/11/2024"
+   },
+
+    {
+    event_id: "EVT001",
+    description: "Providing more ingredient options or scents could make the experience even more excitingProviding more ingredient options or scents could make the experience even more exciting",
+    star: "3",
+    comp_name: "GovTech",
+    feedbackdate : "10/11/2023"
+   },
+
+     {
+    event_id: "EVT001",
+    description: "The atmosphere was welcoming and encouraged creativity.",
+    star: "3",
+    comp_name: "GovTech",
+    feedbackdate : "10/11/2023"
+   },
+
+    {
+    event_id: "EVT001",
+    description: "A bit more time for questions at the end would have been helpful.",
+    star: "2",
+    comp_name: "GovTech",
+    feedbackdate : "10/11/2023"
+   },
+
+    {
+    event_id: "EVT001",
     description: "very easy workshop and fund",
     star: "5",
     comp_name: "MOE",

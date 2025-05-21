@@ -1,67 +1,144 @@
+document.addEventListener("DOMContentLoaded", function() {
+  // Get event_id from URL
+  const params = new URLSearchParams(window.location.search);
+  const eventId = params.get("event_id");
 
+  // Find the matching event
+  const event = events.find(e => e.event_id === eventId);
 
-// Get event_id from URL
-const params = new URLSearchParams(window.location.search);
-const eventId = params.get("event_id");
+  // Display event details
+  if (event) {
+    document.getElementById("eventTitle").textContent = `Thank You for Your Interest in Our Event: ${event.name}`;
+    document.getElementById("eventImage").src = event.image;
+    document.getElementById("eventImage").alt = event.name;
+   // document.getElementById("eventDescription").textContent = event.description;
+   const eventDescElem = document.getElementById("eventDescription");
+   const eventWords = event.description.split(' ');
+   const eventShortText = eventWords.slice(0, 30).join(' ');
+   const eventIsLong = eventWords.length > 30;
 
-// Find the matching event
-const event = events.find(e => e.event_id === eventId);
-
-// Display event details
-if (event) {
-  console.log(event); 
-  document.getElementById("eventTitle").textContent = `Thank You for Your Interest in Our Event: ${event.name}`;
-  document.getElementById("eventImage").src = event.image;
-  document.getElementById("eventImage").alt = event.name;
-  document.getElementById("eventDescription").textContent = event.description;
-  document.getElementById("eventCategory").textContent = event.category;
-  document.getElementById("eventCapacity").textContent = event.capacity;
-  document.getElementById("eventVenue").textContent = event.venue;
-  
-} else {
-  document.getElementById("eventTitle").textContent = "Event Not Found";
+  eventDescElem.innerHTML = eventIsLong
+  ? `${eventShortText}... <a href="#" id="eventReadMore">Read more</a>`
+  : event.description;
+   
+  if (eventIsLong) {
+  eventDescElem.onclick = function(e) {
+    if (e.target && e.target.id === "eventReadMore") {
+      e.preventDefault();
+      eventDescElem.innerHTML = `
+        ${event.description} <a href="#" id="eventShowLess">Show less</a>
+      `;
+    } else if (e.target && e.target.id === "eventShowLess") {
+      e.preventDefault();
+      eventDescElem.innerHTML = `
+        ${eventShortText}... <a href="#" id="eventReadMore">Read more</a>
+      `;
+    }
+  };
 }
+   
+   document.getElementById("eventCategory").textContent = event.category;
+    document.getElementById("eventCapacity").textContent = event.capacity;
+    document.getElementById("eventVenue").textContent = event.venue;
+  } else {
+    document.getElementById("eventTitle").textContent = "Event Not Found";
+  }
 
-// Display feedback for the selected event id
-// Find the matching event feedback
-// const feedback = feedbacks.find(e => e.event_id === eventId);
+  // Feedback pagination and rendering
+  let feedbackPage = 1;
+  const feedbacksPerPage = 3;
 
-// // Display feedbacks details
-// if (feedback) {
-//    document.getElementById("fbstar").textContent = feedback.star;
-//   document.getElementById("fbdescription").textContent = feedback.description;
-//    document.getElementById("fbcompname").textContent = feedback.comp_name;
-//    document.getElementById("fbdate").textContent = feedback.feedbackdate;
-//    // Optional: show organiser info or feedback dynamically
+  function renderFeedbacks() {
+    const eventFeedbacks = feedbacks
+      .filter(fb => fb.event_id === eventId)
+      .sort((a, b) => b.star - a.star);
 
-// Find all feedbacks for the event
-const eventFeedbacks = feedbacks
-  .filter(fb => fb.event_id === eventId)
-  .sort((a, b) => b.star - a.star); // Sort by highest star
+    const feedbackContainer = document.getElementById("feedbackContainer");
+    feedbackContainer.innerHTML = "";
 
-// Get the container element for feedbacks (make sure it exists in your HTML)
-const feedbackContainer = document.getElementById("feedbackContainer");
-feedbackContainer.innerHTML = ""; // Clear previous content
+    const start = (feedbackPage - 1) * feedbacksPerPage;
+    const end = start + feedbacksPerPage;
+    const pageFeedbacks = eventFeedbacks.slice(start, end);
 
-if (eventFeedbacks.length > 0) {
-  eventFeedbacks.forEach(fb => {
-    const fbDiv = document.createElement("div");
-    fbDiv.innerHTML = `
-      <div>
+    pageFeedbacks.forEach((fb, idx) => {
+      const fbDiv = document.createElement("div");
+      fbDiv.className = "feedback-item";
+      const words = fb.description.split(' ');
+      const shortText = words.slice(0, 30).join(' ');
+      const isLong = words.length > 30;
+      const descId = `fbdesc-${start + idx}`;
+      fbDiv.innerHTML = `
         <strong>${fb.comp_name}</strong> (${fb.feedbackdate})<br>
         <span>⭐ ${fb.star}</span>
-        <p>${fb.description}</p>
-      </div>
-      <hr>
-    `;
-    feedbackContainer.appendChild(fbDiv);
-  });
-} else {
-  feedbackContainer.textContent = "No feedback found for this event.";
+        <p id="${descId}">
+          ${isLong ? shortText + '...' : fb.description}
+          ${isLong ? `<a href="#" class="read-more" data-full="${encodeURIComponent(fb.description)}" data-id="${descId}">Read more</a>` : ''}
+        </p>
+      `;
+      feedbackContainer.appendChild(fbDiv);
+    });
+
+    // Pagination controls
+    const prev = document.getElementById("prevFeedback");
+    const next = document.getElementById("nextFeedback");
+    prev.style.display = feedbackPage > 1 ? "inline" : "none";
+    next.style.display = end < eventFeedbacks.length ? "inline" : "none";
+  }
+
+  // Event delegation for read-more/show-less
+  document.getElementById("feedbackContainer").onclick = function(e) {
+    if (e.target.classList.contains('read-more')) {
+      e.preventDefault();
+      const link = e.target;
+      const fullText = decodeURIComponent(link.getAttribute('data-full'));
+      const id = link.getAttribute('data-id');
+      const words = fullText.split(' ');
+      const shortText = words.slice(0, 30).join(' ') + '...';
+
+      if (link.textContent === "Read more") {
+        document.getElementById(id).innerHTML = `
+          ${fullText}
+          <a href="#" class="read-more" data-full="${encodeURIComponent(fullText)}" data-id="${id}">Show less</a>
+        `;
+      } else {
+        document.getElementById(id).innerHTML = `
+          ${shortText}
+          <a href="#" class="read-more" data-full="${encodeURIComponent(fullText)}" data-id="${id}">Read more</a>
+        `;
+      }
+    }
+  };
+
+  // Pagination functions
+  window.prevFeedbackPage = function() {
+    if (feedbackPage > 1) {
+      feedbackPage--;
+      renderFeedbacks();
+    }
+  };
+  window.nextFeedbackPage = function() {
+    const eventFeedbacks = feedbacks.filter(fb => fb.event_id === eventId);
+    if (feedbackPage * feedbacksPerPage < eventFeedbacks.length) {
+      feedbackPage++;
+      renderFeedbacks();
+    }
+  };
+
+  renderFeedbacks();
+});
+
+function subquotation() {
+  alert("Thank you for your submission")
 }
 
-// Form submission
-document.getElementById("quotationForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-  alert("Quotation request submitted successfully!");
-});
+function showCustomAlert() {
+    document.getElementById("customModal").style.display = "block";
+  }
+function closeModal() {
+    document.getElementById("customModal").style.display = "none";
+    goBack();
+  }
+
+function goBack() {
+    window.location.href = "index.html";
+  }
