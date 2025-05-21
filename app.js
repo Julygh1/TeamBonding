@@ -38,6 +38,11 @@ function applyFilters() {
 }
 
 function renderEvents() {
+// to show eventcount start
+  document.getElementById("eventCount").textContent =
+    `Showing ${filteredEvents.length} of ${events.length} events`;
+ // to show eventcount end
+  
   const container = document.getElementById("eventTable");
   container.innerHTML = "";
 

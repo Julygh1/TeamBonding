@@ -3,12 +3,23 @@ document.addEventListener("DOMContentLoaded", function() {
   const params = new URLSearchParams(window.location.search);
   const eventId = params.get("event_id");
 
-  // Find the matching event
+// put default date today + 14 days bcos need to clarification and confirmation +  aor clearance after
+  const eventDateInput = document.getElementById("eventDate");
+  if (eventDateInput) {
+    const today = new Date();
+    today.setDate(today.getDate() + 14);
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    eventDateInput.value = `${yyyy}-${mm}-${dd}`;
+  }
+// Find the matching event
   const event = events.find(e => e.event_id === eventId);
 
   // Display event details
   if (event) {
-    document.getElementById("eventTitle").textContent = `Thank You for Your Interest in Our Event: ${event.name}`;
+    // document.getElementById("eventTitle").textContent = `Thank You for Your Interest in Our Event: ${event.name}`;
+    document.getElementById("eventTitle").textContent = `${event.name}`;
     document.getElementById("eventImage").src = event.image;
     document.getElementById("eventImage").alt = event.name;
    // document.getElementById("eventDescription").textContent = event.description;
@@ -18,16 +29,15 @@ document.addEventListener("DOMContentLoaded", function() {
    const eventIsLong = eventWords.length > 30;
 
    // retrieve organiser details
-document.getElementById("organiserName").textContent = event.organiser_name || "";
-  const websiteElem = document.getElementById("organiserWebsite");
-  websiteElem.textContent = event.organiser_website || "";
-  websiteElem.href = event.organiser_website || "#";
-  document.getElementById("organiserContact").textContent = event.organiser_contact || "";
-  const emailElem = document.getElementById("organiserEmail");
-  emailElem.textContent = event.organiser_email || "";
-  emailElem.href = event.organiser_email ? `mailto:${event.organiser_email}` : "#";
-// end of retrieve organiser details
-
+    document.getElementById("organiserName").textContent = event.organiser_name || "";
+    const websiteElem = document.getElementById("organiserWebsite");
+    websiteElem.textContent = event.organiser_website || "";
+    websiteElem.href = event.organiser_website || "#";
+    document.getElementById("organiserContact").textContent = event.organiser_contact || "";
+    const emailElem = document.getElementById("organiserEmail");
+    emailElem.textContent = event.organiser_email || "";
+    emailElem.href = event.organiser_email ? `mailto:${event.organiser_email}` : "#";
+  // end of retrieve organiser details
 
   eventDescElem.innerHTML = eventIsLong
   ? `${eventShortText}... <a href="#" id="eventReadMore">Read more</a>`
@@ -47,11 +57,11 @@ document.getElementById("organiserName").textContent = event.organiser_name || "
       `;
     }
   };
-}
+  }
    
-   document.getElementById("eventCategory").textContent = event.category;
-    document.getElementById("eventCapacity").textContent = event.capacity;
-    document.getElementById("eventVenue").textContent = event.venue;
+     document.getElementById("eventCategory").textContent = event.category;
+     document.getElementById("eventCapacity").textContent = event.capacity;
+     document.getElementById("eventVenue").textContent = event.venue;
   } else {
     document.getElementById("eventTitle").textContent = "Event Not Found";
   }
@@ -60,7 +70,7 @@ document.getElementById("organiserName").textContent = event.organiser_name || "
   let feedbackPage = 1;
   const feedbacksPerPage = 3;
 
-  function renderFeedbacks() {
+function renderFeedbacks() {
     const eventFeedbacks = feedbacks
       .filter(fb => fb.event_id === eventId)
       .sort((a, b) => b.star - a.star);
@@ -98,7 +108,7 @@ document.getElementById("organiserName").textContent = event.organiser_name || "
   }
 
   // Event delegation for read-more/show-less
-  document.getElementById("feedbackContainer").onclick = function(e) {
+    document.getElementById("feedbackContainer").onclick = function(e) {
     if (e.target.classList.contains('read-more')) {
       e.preventDefault();
       const link = e.target;

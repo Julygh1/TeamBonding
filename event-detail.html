@@ -13,23 +13,9 @@
 </head>
 <body>
   <div class="right-panel">
- <!-- <h1 id="eventTitle" class="banner">Thank You for Your Interest in Our Event</h1>-->
-  <!--<table class="detail-table" style="width:100%;">
-  <tr>
-    <td style="width: 30%; vertical-align: top;">
-      <img id="eventImage" src="" alt="Event Image" style="width: 100%; border-radius: 8px;" />
-    </td>
-    <td style="width: 70%; vertical-align: top;">
-      <div id="eventDescription" style="text-align: justify;"></div>
-      <div id="eventCategory" style="text-align: justify;"></div>
-      <div id="eventCapacity" style="text-align: justify;"></div>
-      <div id="eventVenue" style="text-align: justify;"></div>
-    </td>
-  </tr>
-</table>
--->
-<h1 id="eventTitle" class="banner">Thank You for Your Interest in Our Event</h1>
-<!--<h1 id="eventTitle" class="event-title centered-title">Thank You for Your Interest in Our Event</h1>-->
+
+<h1 id="eventTitle" class="banner"></h1>
+
 <div class="event-card">
   <div class="event-card-image">
     <img id="eventImage" src="" alt="Event Image" />
@@ -72,60 +58,55 @@
   </tr>
 </table>
 
-
     <form id="quotationForm">
       <div class="event-card">
-  
-        <tr>
-            <div class="event-organiser">
-    <strong><span id="organiserName"></span></strong><br>
-      <a id="organiserWebsite" href="#" target="_blank"></a><br>
-              <strong>You can contact us at the following:</strong><br>
-      <span id="organiserContact"></span><br>
-    <a id="organiserEmail" href="#"></a>
-  </div>
-        </tr>
-        <tr>
+        <div class="event-organiser">
+          <span id="organiserName" class="organiser-main"></span><br>
+          <a id="organiserWebsite" class="organiser-main" href="#" target="_blank"></a><br>
+          <strong>You can contact us at the following:</strong><br>
+          <span id="organiserContact"></span><br>
+          <a id="organiserEmail" href="#"></a>
+        </div>
         
-          <div class="event-card-details">
-          <div><strong>Fill in the form below to receive an instant quotation for your event! </strong></div><BR>          <div>
-            Date of Event: <input type="date" required />
-          </div>
-          <div>
-            Number of Participants: <input type="number" placeholder="Enter number of participants" required />
-          </div>
-        </tr>
-        <tr>
-          <div>
-            Expected Total Budget: <input type="number" placeholder="Enter total cost" required />
-          </div>
-          <div>
-            Email Address: <input type="email" placeholder="Enter your email address" required />
-          </div>
-        </tr>
-        <tr>
-          
-          <div>
-            Type of Quotation:<br />
-            <input type="checkbox" checked /> By Package (default quotation)
-            <input type="checkbox" /> By Number of Participants
-          </div>
-          <div>    
-            Adds-On:<br />        
-            <input id="reqvenue" type="checkbox" checked /> Venue Required
-            <input id="reqrefreshment" type="checkbox" checked /> Refreshment Required
-          </div>
-        </tr>
-        <br>
-        <tr>
-          <td colspan="2">
-            Additional Requirements:<br />
-            <input type="text" style="width: 100%;" placeholder="Enter any other requirements" />
-          </td>
-        </tr>
+        <div class="event-card-details">
+    <div class="form-desc"><strong>Fill in the form below to receive an instant quotation for your event!</strong></div>
+    <form id="quotationForm">
+      <div class="form-row">
+        <label for="eventDate">Date of Event (mm/dd/yyyy):</label>
+        <input id="eventDate" type="date" required />
       </div>
+      <div class="form-row">
+        <label for="participants">Number of Participants:</label>
+        <input id="participants" type="number" placeholder="Enter number of participants" required />
       </div>
-      <br />
+      <div class="form-row">
+        <label for="budget">Expected Total Budget:</label>
+        <input id="budget" type="number" placeholder="Enter total cost" required />
+      </div>
+      <div class="form-row">
+        <label for="email">Email Address:</label>
+        <input id="email" type="email" placeholder="Enter your email address" required />
+      </div>
+      <!-- Add other form fields as needed -->
+      <!-- <button class="button" onclick="showCustomAlert()">Submit for Quotation</button> -->
+      <div class="form-row">
+        <label for="typeofquote">Type of Quotation:</label>
+        <input id="pkgquote" type="checkbox" checked />Package (default quotaion)
+        <input id="paxquote" type="checkbox"  />Number of Participants
+      </div>
+      <div class="form-row">
+        <label for="addonreq">Additional Requirement:</label>
+        <input id="reqvenue" type="checkbox" checked />Venue 
+        <input id="reqrefreshment" type="checkbox" />Refreshment
+      </div> 
+      <div class="form-row">
+        <label for="othreq">Remarks:</label>
+        <input id="othreq" type="text" placeholder="Enter remarks if any"/>
+      </div>     
+    </form>
+  </div>
+</div>
+   
       <button class="button" onclick="showCustomAlert()">Submit for Quotation</button>
       <!-- Custom Modal -->
       <div id="customModal" style="display:none; position:fixed; top:30%; left:35%; background:white; padding:20px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.3); z-index:1000;">
@@ -134,7 +115,7 @@
       </div>
           
       <button class="button" onclick="goBack()">Return to Homepage</button>
-    </form>
+   
   </div>
 </body>
 </html>

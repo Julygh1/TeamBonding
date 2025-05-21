@@ -273,3 +273,40 @@ width: 100%;
   text-decoration: underline;
   font-size: 0.95em;
 }
+
+.form-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.form-row label {
+  min-width: 180px;
+  text-align: right;
+  margin-right: 10px;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+}
+
+.form-row input {
+  flex: 1;
+  font-size: 14px;
+  padding: 4px 8px;
+}
+
+.event-organiser {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.organiser-main {
+  font-size: 1.5em;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.form-desc {
+  text-align: center;
+  margin-bottom: 16px;
+  font-size: 1.1em;
+}
