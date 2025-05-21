@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Event Details</title>
+  <link rel="stylesheet" href="public/css/style.css" />
+ 
+  <script defer src="event.js"></script>
+ <script defer src="feedback.js"></script>
+  <script defer src="event-detail.js"></script>
+
+</head>
+<body>
+  <div class="right-panel">
+    <h1 id="eventTitle">Thank You for Your Interest in Our Event</h1>
+
+    <table class="event-table">
+      <tr>
+        <td style="width: 30%;">
+          <img id="eventImage" src="" alt="Event Image" style="width: 100%; border-radius: 8px;" />
+        </td>
+      <!--  <td id="eventDescription" style="text-align: justify;"></td> -->
+        <td>
+            <table>
+            <label>Event Description</label><tr id="eventDescription" style="text-align: justify;"></tr><bR>
+            <tr style="text-align:justify;">Category : xxx</tr> <br>
+            <tr>Capacity : xxx </tr> <BR>
+            <tr>Venue: xxx</tr> <BR>
+            </table>
+        </td>
+
+      </tr>
+    </table>
+
+    <table class="event-table">
+      <tr>
+        <th>What our Clients say about this event:</th>
+        <th>Client Feedback 1</th>
+        <th>Client Feedback 2</th>
+        <th>Client Feedback 3</th>
+      </tr>
+    </table>
+
+    <form id="quotationForm">
+      <table class="event-table">
+        <tr>
+          <td rowspan="5" style="width: 25%; vertical-align: top;"><strong>Request for Quotation:</strong></td>
+          <td>
+            Date of Event: <input type="date" required />
+          </td>
+          <td>
+            Number of Participants: <input type="number" placeholder="Enter number of participants" required />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Expected Total Budget: <input type="number" placeholder="Enter total cost" required />
+          </td>
+          <td>
+            Email Address: <input type="email" placeholder="Enter your email address" required />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Venue:<br />
+            <input type="checkbox" /> Yes
+          </td>
+          <td>
+            Type of Quotation:<br />
+            <input type="checkbox" /> By Package
+            <input type="checkbox" /> By Number of Person
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Refreshment:<br />
+            <input type="checkbox" /> Yes
+          </td>
+          <td>
+            Participant Remarks:<br />
+            <input type="text" placeholder="Any specific needs?" />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            Additional Requirements:<br />
+            <input type="text" style="width: 100%;" placeholder="Enter any other requirements" />
+          </td>
+        </tr>
+      </table>
+      <br />
+      <button class="button" type="submit">Submit For Quotation</button>
+    </form>
+  </div>
+</body>
+</html>

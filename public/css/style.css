@@ -1,37 +1,131 @@
-.welcome-container {
-    text-align: center;
-
-    margin-top: 50px;
-    margin-bottom: 50px;
+* {
+  box-sizing: border-box;
 }
 
-.new-post-btn-container{
-    text-align: center;
-
-    margin-top: 50px;
-    margin-bottom: 50px;
+body {
+  font-family: 'SamsungOne', Arial, sans-serif;
+  margin: 0;
+  background-color: white
 }
 
-.post-container {
-    max-width: 800px;
-
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: auto;
-    margin-right: auto;
+.banner {
+  background-color: #1428a0;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
 }
 
-.about-container {
-    text-align: center;
-
-    margin-top: 50px;
-    margin-bottom: 50px;
+.container {
+  display: flex;
+  min-height: 100vh;
 }
 
-.about-container > img{
-    margin-bottom: 40px;
+.left-nav {
+  width: 25%;
+  background-color: #f1f1f1;
+  padding: 20px;
+  border-right: 1px solid #ccc;
 }
 
-.cancel-create-post {
-    text-align: center;
+.left-nav h3 {
+  margin: 20px 0 10px;
+  color: #333;
 }
+
+.left-nav label {
+  display: block;
+  margin: 5px 0;
+}
+
+.button {
+  margin-top: 10px;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+
+.button.reset {
+  background-color: #6c757d;
+  margin-top: 10px;
+}
+
+.button.reset:hover {
+  background-color: #5a6268;
+}
+
+
+.right-panel {
+  width: 75%;
+  padding: 20px;
+}
+
+.selection-summary {
+  background: #e9ecef;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #333;
+}
+
+.event-table {
+  width: 100%;
+  table-layout: fixed;
+ border-collapse: separate;
+  border-spacing: 20px;
+}
+
+
+.event-table td {
+  background-color: #ffffff;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  vertical-align: top;
+
+  /* fixed size for grid look */
+  width: 30%;
+  height: 300px;
+}
+
+.event-table img {
+width: 100%;
+  height: 140px;  
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.event-table p {
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+.event-table .button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  font-size: 13px;
+  width: auto;
+}
+
+.pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
