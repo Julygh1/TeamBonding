@@ -34,19 +34,29 @@
   <div class="event-card-image">
     <img id="eventImage" src="" alt="Event Image" />
   </div>
+ 
   <div class="event-card-details">
-    <label>Description:</label><div id="eventDescription"></div>
-    <label>Category:</label><div id="eventCategory"></div>
-    <label>Capacity:</label><div id="eventCapacity"></div>
-    <label>Venue:</label><div id="eventVenue"></div>
+  <div class="event-detail-row">
+    <label>Description:</label>
+    <div id="eventDescription"></div>
+  </div>
+  <div class="event-detail-row">
+    <label>Category:</label>
+    <div id="eventCategory"></div>
+  </div>
+  <div class="event-detail-row">
+    <label>Capacity:</label>
+    <div id="eventCapacity"></div>
+  </div>
+  <div class="event-detail-row">
+    <label>Venue:</label>
+    <div id="eventVenue"></div>
   </div>
 </div>
-
+</div>
 </td>
-
       </tr>
     </table>
-
     <table class="detail-table">
   <tr>
     <th>What our Clients say about this event:</th>
@@ -65,12 +75,20 @@
 
     <form id="quotationForm">
       <div class="event-card">
+  
         <tr>
-          <div class="event-card-image">
-          <td rowspan="5" style="width: 25%; vertical-align: top;"><strong>Request for Quotation:</strong></td>
-          </div>
+            <div class="event-organiser">
+    <strong><span id="organiserName"></span></strong><br>
+      <a id="organiserWebsite" href="#" target="_blank"></a><br>
+              <strong>You can contact us at the following:</strong><br>
+      <span id="organiserContact"></span><br>
+    <a id="organiserEmail" href="#"></a>
+  </div>
+        </tr>
+        <tr>
+        
           <div class="event-card-details">
-          <div>
+          <div><strong>Fill in the form below to receive an instant quotation for your event! </strong></div><BR>          <div>
             Date of Event: <input type="date" required />
           </div>
           <div>
@@ -89,8 +107,8 @@
           
           <div>
             Type of Quotation:<br />
-            <input type="checkbox" checked /> By Package
-            <input type="checkbox" /> By Number of Person
+            <input type="checkbox" checked /> By Package (default quotation)
+            <input type="checkbox" /> By Number of Participants
           </div>
           <div>    
             Adds-On:<br />        

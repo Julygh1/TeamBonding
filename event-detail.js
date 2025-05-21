@@ -17,6 +17,18 @@ document.addEventListener("DOMContentLoaded", function() {
    const eventShortText = eventWords.slice(0, 30).join(' ');
    const eventIsLong = eventWords.length > 30;
 
+   // retrieve organiser details
+document.getElementById("organiserName").textContent = event.organiser_name || "";
+  const websiteElem = document.getElementById("organiserWebsite");
+  websiteElem.textContent = event.organiser_website || "";
+  websiteElem.href = event.organiser_website || "#";
+  document.getElementById("organiserContact").textContent = event.organiser_contact || "";
+  const emailElem = document.getElementById("organiserEmail");
+  emailElem.textContent = event.organiser_email || "";
+  emailElem.href = event.organiser_email ? `mailto:${event.organiser_email}` : "#";
+// end of retrieve organiser details
+
+
   eventDescElem.innerHTML = eventIsLong
   ? `${eventShortText}... <a href="#" id="eventReadMore">Read more</a>`
   : event.description;
