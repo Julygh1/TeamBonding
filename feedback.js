@@ -1,5 +1,5 @@
 // Sample Feedback Data
-const feedback = [
+const feedbacks = [
   {
     event_id: "EVT001",
     description: "very good and simple. facilitation was very engaging",
