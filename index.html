@@ -57,8 +57,9 @@
             <input type="checkbox" name="category" value="Culinary"> Culinary<br>
             <input type="checkbox" name="category" value="Sport"> Sport<br>
             <input type="checkbox" name="category" value="Technology"> Technology<br>
-            <input type="checkbox" name="category" value="Other"> Other<br>  
-          <!--  <input type="text" name="category" id="cat_input"><br> -->
+            <input type="checkbox" id="otherCatCheckbox"> Other: 
+            <input type="text" id="otherCat" placeholder="Enter one category"><br><br>
+                 
        
             <br>    
             <h3>Group Size: </h3>
@@ -72,12 +73,11 @@
             <input type="checkbox" name="payment" value="All" checked> All modes<br>
             <input type="checkbox" name="payment" value="vendorgov"> Vendor@gov<br>
             <input type="checkbox" name="payment" value="einvoice"> E-Invoice<br>
-            <input type="checkbox" name="payment" value="Other"> Other<br> 
-        <!--    <input type="text" name="payment" id="pay_input"><br>
-        -->
+            <input type="checkbox" id="otherPaymCheckbox"> Other: 
+            <input type="text" id="otherPaym" placeholder="Enter one payment mode"><br><br>
         <br>    
-        <button onclick="ReqSubmit()">Apply Filters</button>
-        
+        <!--<button onclick="ReqSubmit()">Apply Filters</button>-->
+        <button onclick="getSelection()">Apply Filters</button>
     </aside>
 
         <main class="right-panel">
