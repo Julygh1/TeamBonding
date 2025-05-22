@@ -66,6 +66,9 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("eventTitle").textContent = "Event Not Found";
   }
 
+
+
+
   // Feedback pagination and rendering
   let feedbackPage = 1;
   const feedbacksPerPage = 3;
@@ -144,7 +147,33 @@ function renderFeedbacks() {
       feedbackPage++;
       renderFeedbacks();
     }
+
+    //to check the mandatary fields are filled before allw submission
+     const participants = document.getElementById("participants");
+  const email = document.getElementById("email");
+  const eventDate = document.getElementById("eventDate");
+  const submitBtn = document.getElementById("submitQuotationBtn");
+
+  function checkFormFields() {
+    if (
+      participants.value.trim() !== "" &&
+      email.value.trim() !== "" &&
+      eventDate.value.trim() !== ""
+    ) {
+      submitBtn.style.display = "inline-block";
+    } else {
+      submitBtn.style.display = "none";
+    }
+  }
+
+  participants.addEventListener("input", checkFormFields);
+  email.addEventListener("input", checkFormFields);
+  eventDate.addEventListener("input", checkFormFields);
+
+  // Initial check in case fields are pre-filled
+  checkFormFields();
   };
+  // end of submit quotation button
 
   renderFeedbacks();
 });
@@ -153,9 +182,62 @@ function subquotation() {
   alert("Thank you for your submission")
 }
 
-function showCustomAlert() {
-    document.getElementById("customModal").style.display = "block";
+
+function checkFormFields() {
+  const participants = document.getElementById("participants");
+  const email = document.getElementById("email");
+  const eventDate = document.getElementById("eventDate");
+  const submitBtn = document.getElementById("submitQuotationBtn");
+
+  if (
+    participants.value.trim() !== "" &&
+    email.value.trim() !== "" &&
+    eventDate.value.trim() !== ""
+  ) {
+    submitBtn.disabled = false;
+  } else {
+    submitBtn.disabled = true;
   }
+}
+
+// function showCustomAlert() {
+//     document.getElementById("customModal").style.display = "block";
+//   }
+/* custom alert for submit quotation button */
+function showCustomAlert(e) {
+
+  // Generate a booking request number (e.g., "REQ" + timestamp + random 3 digits)
+  const bookingNumber = "REQ" + Date.now() + Math.floor(Math.random() * 900 + 100);
+
+
+  const eventDescription = document.getElementById("eventDescription").textContent || "";
+  const eventDate = document.getElementById("eventDate").value || "";
+  const participants = document.getElementById("participants").value || "";
+  const email = document.getElementById("email").value || "";
+  
+  // Format date if needed (from yyyy-mm-dd to dd/mm/yyyy)
+  let formattedDate = eventDate;
+  if (eventDate && eventDate.includes("-")) {
+    const [yyyy, mm, dd] = eventDate.split("-");
+    formattedDate = `${dd}/${mm}/${yyyy}`;
+  }
+  // Build the details HTML
+  document.getElementById("bookingDetails").innerHTML = `
+    <p><strong>Booking Request No.:</strong> <span style="color:#182C61;">${bookingNumber}</span></p>
+    <p><strong>Event Description:</strong> ${eventDescription}</p>
+    <p><strong>Event Date:</strong> ${formattedDate}</p>
+    <p><strong>Number of Participants:</strong> ${participants}</p>
+    <p><strong>Email Address:</strong> ${email}</p>
+  `;
+
+  // Show modal
+  document.getElementById("customModal").style.display = "block";
+  
+
+}
+
+
+
 function closeModal() {
     document.getElementById("customModal").style.display = "none";
     goBack();

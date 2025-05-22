@@ -58,7 +58,7 @@
   </tr>
 </table>
 
-    <form id="quotationForm">
+    <!-- <form id="quotationForm"> -->
       <div class="event-card">
         <div class="event-organiser">
           <span id="organiserName" class="organiser-main"></span><br>
@@ -73,11 +73,11 @@
     <form id="quotationForm">
       <div class="form-row">
         <label for="eventDate">Date of Event (mm/dd/yyyy):</label>
-        <input id="eventDate" type="date" required />
+        <input id="eventDate" type="date" required onchange="checkFormFields()"/>
       </div>
       <div class="form-row">
         <label for="participants">Number of Participants:</label>
-        <input id="participants" type="number" placeholder="Enter number of participants" required />
+        <input id="participants" type="number" required placeholder="Enter number of participants" required onchange="checkFormFields()"/>
       </div>
       <div class="form-row">
         <label for="budget">Expected Total Budget:</label>
@@ -85,35 +85,48 @@
       </div>
       <div class="form-row">
         <label for="email">Email Address:</label>
-        <input id="email" type="email" placeholder="Enter your email address" required />
+        <input id="email" type="email" required placeholder="Enter your email address" required onchange="checkFormFields()"/>
       </div>
       <!-- Add other form fields as needed -->
       <!-- <button class="button" onclick="showCustomAlert()">Submit for Quotation</button> -->
       <div class="form-row">
         <label for="typeofquote">Type of Quotation:</label>
+       <div class="checkbox-group">
+        <div>
         <input id="pkgquote" type="checkbox" checked />Package (default quotaion)
+        </div>
+        <div>
         <input id="paxquote" type="checkbox"  />Number of Participants
+        </div>
+      </div>
       </div>
       <div class="form-row">
         <label for="addonreq">Additional Requirement:</label>
+        <div class="checkbox-group">
+        <div>
         <input id="reqvenue" type="checkbox" checked />Venue 
+        </div>
+        <div>
         <input id="reqrefreshment" type="checkbox" />Refreshment
+        </div>
+        </div>
       </div> 
       <div class="form-row">
         <label for="othreq">Remarks:</label>
         <input id="othreq" type="text" placeholder="Enter remarks if any"/>
       </div>     
-    </form>
+     <button id="submitQuotationBtn" class="button" disabled onclick="showCustomAlert(); return false">Submit for Quotation</button>   
+     </form>
   </div>
 </div>
-   
-      <button class="button" onclick="showCustomAlert()">Submit for Quotation</button>
+      
       <!-- Custom Modal -->
-      <div id="customModal" style="display:none; position:fixed; top:30%; left:35%; background:white; padding:20px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.3); z-index:1000;">
-      <p>Thank you for your submission</p>
-      <button onclick="closeModal()">OK</button>
+       <div id="customModal" class="custom-modal">
+        <h2>Booking Confirmation</h2>
+          <div id="bookingDetails"></div>
+          <button onclick="closeModal()" class="modal-btn">OK</button>
       </div>
-          
+      
       <button class="button" onclick="goBack()">Return to Homepage</button>
    
   </div>

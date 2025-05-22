@@ -97,6 +97,7 @@ for (let rowIndex = 0; rowIndex < 2; rowIndex++) {
 }
 }
 
+
 function resetFilters() {
   // document.querySelectorAll('input[type="radio"]').forEach(input => input.checked = false);
   // document.getElementById("selectionSummary").innerHTML = "";
