@@ -19,6 +19,29 @@ html, body {
   font-weight: bold;
 }
 
+.banner-modern {
+  margin: 32px auto 24px auto;
+  padding: 24px 0;
+  width: 90%;
+  max-width: 700px;
+  /* background: linear-gradient(90deg, #4f8cff 0%, #6f6ee8 100%); */
+  background: linear-gradient(90deg,lightblue 0%, #4f8cff 100%);
+  color: #fff;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(80, 80, 160, 0.10);
+  letter-spacing: 1px;
+  transition: box-shadow 0.2s;
+}
+.banner-modern:hover {
+  box-shadow: 0 8px 32px rgba(80, 80, 160, 0.18);
+}
+
+
+
 
 .right-panel {
   width: 100%;
@@ -89,10 +112,10 @@ button:disabled {
   font-weight: bold;
 }
 
-/* EventTitle-grid */
+/* Event details in row 1 and description */
 .event-card {
   display: flex;
-  background: red /*#f9f9f9*/;
+  background:white;
   border: 1px solid #ccc;
   border-radius: 8px;
   margin-bottom: 24px;
@@ -104,9 +127,11 @@ button:disabled {
   margin-right: auto; */
   
 }
+
+/* for row 3 organiser cell */
 .event-organiser {
   flex: 0 0 30%;
-  background: #fff;
+  background: #f1f1f1;
   padding: 16px;
   font-size: 14px;
   border-right: 1px solid #eee;
@@ -117,20 +142,23 @@ button:disabled {
   word-break: break-word;
 }
 
+/* for row 1 image cell */
 .event-card-image {
   /* flex: 0 0 20%; */
   flex: 0 0 30%; 
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fff;
+  background: #f1f1f1;
   padding: 16px;
 }
 
 .event-card-image img {
   width: 100%;
-  max-width: 180px;
+   /* max-width: 180px; */
+  max-width: 300px;
   max-height: 220px; 
+  
   /* max-width: 120px;
   max-height: 180px; */
   border-radius: 8px;
@@ -204,7 +232,7 @@ button:disabled {
 .detail-table td {
 /*  background-color: #ffffff;
   background-color: #f1f1f1;*/
-background-color: purple;
+background-color: lightblue;
   padding: 15px;
   border: 1px solid #ddd;
   border-radius: 12px;

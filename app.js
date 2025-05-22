@@ -8,16 +8,6 @@ function applyFilters() {
   const category = document.querySelector('input[name="category"]:checked')?.value || "";
   const groupSize = document.querySelector('input[name="groupsize"]:checked')?.value || "";
   const payment = document.querySelector('input[name="payment"]:checked')?.value || "";
-  
-  // Show summary
-  // const summary = document.getElementById("selectionSummary");
-  // summary.innerHTML = `
-  //   <strong>Selected Filters:</strong><br>
-  //   Category: ${category || "None"}<br>
-  //   Group Size: ${groupSize || "None"}<br>
-  //   Payment Mode: ${payment || "None"}
-  // `;
-
 
 
   // Filter logic
@@ -51,9 +41,6 @@ if (filteredEvents.length === 0) {
   eventCountDiv.textContent = `Showing ${filteredEvents.length} of ${events.length} events`;
 }
 
-  // document.getElementById("eventCount").textContent =
-  //   `Showing ${filteredEvents.length} of ${events.length} events`;
- // to show eventcount end
 
 const totalPages = Math.ceil(filteredEvents.length / 6);
 renderPagination(currentPage, totalPages);
@@ -78,7 +65,7 @@ for (let rowIndex = 0; rowIndex < 2; rowIndex++) {
       const event = pageEvents[eventIndex];
       td.innerHTML = `
         <img src="${event.image}" alt="${event.name}" />
-        <p><strong>${event.event_id}</strong></p>
+      
         <p><strong>${event.name}</strong></p>
         <p>Capacity: ${event.capacity}</p>
         <p>Venue: ${event.venue}</p>
@@ -99,12 +86,6 @@ for (let rowIndex = 0; rowIndex < 2; rowIndex++) {
 
 
 function resetFilters() {
-  // document.querySelectorAll('input[type="radio"]').forEach(input => input.checked = false);
-  // document.getElementById("selectionSummary").innerHTML = "";
-  // filteredEvents = [...events];
-  // currentPage = 0;
-  // renderEvents();
-  // Clear all filter inputs
   document.querySelectorAll('input[type=radio], input[type=checkbox]').forEach(input => input.checked = false);
   // Optionally reset other filter UI elements here
 

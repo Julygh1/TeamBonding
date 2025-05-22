@@ -69,7 +69,7 @@ const feedbacks = [
     description: "very easy workshop and fund",
     star: "5",
     comp_name: "MOE",
-    feedbackdate : "11/10/2024"
+    feedbackdate : "08/10/2024"
    },
 
     {

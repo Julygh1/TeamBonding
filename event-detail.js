@@ -74,9 +74,13 @@ document.addEventListener("DOMContentLoaded", function() {
   const feedbacksPerPage = 3;
 
 function renderFeedbacks() {
+    // const eventFeedbacks = feedbacks
+    //   .filter(fb => fb.event_id === eventId)
+    //   .sort((a, b) => b.star - a.star);
+
     const eventFeedbacks = feedbacks
       .filter(fb => fb.event_id === eventId)
-      .sort((a, b) => b.star - a.star);
+      .sort((a, b) => new Date(b.feedbackdate) - new Date(a.feedbackdate));
 
     const feedbackContainer = document.getElementById("feedbackContainer");
     feedbackContainer.innerHTML = "";
@@ -93,8 +97,9 @@ function renderFeedbacks() {
       const isLong = words.length > 30;
       const descId = `fbdesc-${start + idx}`;
       fbDiv.innerHTML = `
-        <strong>${fb.comp_name}</strong> (${fb.feedbackdate})<br>
-        <span>⭐ ${fb.star}</span>
+        
+        <strong>${fb.comp_name}</strong> (⭐ ${fb.star})<br>
+        <span>${fb.feedbackdate}</span>
         <p id="${descId}">
           ${isLong ? shortText + '...' : fb.description}
           ${isLong ? `<a href="#" class="read-more" data-full="${encodeURIComponent(fb.description)}" data-id="${descId}">Read more</a>` : ''}
