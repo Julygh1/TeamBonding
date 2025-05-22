@@ -72,14 +72,15 @@ for (let rowIndex = 0; rowIndex < 2; rowIndex++) {
     if (pageEvents[eventIndex]) {
       const td = document.createElement("td");
       const event = pageEvents[eventIndex];
-      td.innerHTML = `
-        <img src="${event.image}" alt="${event.name}" />
-      
-        <p><strong>${event.name}</strong></p>
-        <p>Capacity: ${event.capacity}</p>
-        <p>Venue: ${event.venue}</p>
-        <button class="button" onclick="window.location.href='event-detail.html?event_id=${event.event_id}'">View Details / Get Quotation</button>
-      `;
+  
+      const venueText = event.venue && event.venue.trim() !== "" ? event.venue : "No venue provided";
+td.innerHTML = `
+  <img src="${event.image}" alt="${event.name}" />
+  <p><strong>${event.name}</strong></p>
+  <p>Capacity: ${event.capacity}</p>
+  <p>Venue: ${venueText}</p>
+  <button class="button" onclick="window.location.href='event-detail.html?event_id=${event.event_id}'">View Details / Get Quotation</button>
+`;
       tr.appendChild(td);
       hasEvent = true;
     }
