@@ -8,6 +8,7 @@ function applyFilters() {
   const category = document.querySelector('input[name="category"]:checked')?.value || "";
   const groupSize = document.querySelector('input[name="groupsize"]:checked')?.value || "";
   const payment = document.querySelector('input[name="payment"]:checked')?.value || "";
+  const venueRequired = document.getElementById('venueRequired').checked;
 
 
   // Filter logic
@@ -20,7 +21,13 @@ function applyFilters() {
           ? event.capacity > 100
           : event.capacity <= parseInt(groupSize))
       : true;
-    return matchCategory && matchPayment && matchGroupSize;
+
+    var matchVenue = true;
+    if (venueRequired && event.venue === "") {
+      matchVenue = false;
+    }
+     
+    return matchCategory && matchPayment && matchGroupSize && matchVenue;
   });
 
   currentPage = 0;
@@ -37,8 +44,10 @@ if (filteredEvents.length === 0) {
   // Optionally, hide pagination
   document.getElementById("eventPagination").innerHTML = "";
   return;
+} else if (filteredEvents.length < events.length) {
+  eventCountDiv.textContent = `Showing ${filteredEvents.length} matching events out of ${events.length} events`;
 } else {
-  eventCountDiv.textContent = `Showing ${filteredEvents.length} of ${events.length} events`;
+  eventCountDiv.textContent = `Showing all ${events.length} events`;
 }
 
 

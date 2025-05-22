@@ -181,7 +181,7 @@ const events = [
     name: "Art Jamming",
     description: "Unleash creativity through an art jam as teams come together to paint and express themselves.",
     capacity: 50,
-    venue: "SOTA",
+    venue: "",
     event_hour: 2,
     category: "workshop",
     payment: ["creditcard"],

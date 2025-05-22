@@ -43,7 +43,9 @@
       <label><input type="radio" name="payment" value="vendorgov" /> Vendor@gov</label>
       <label><input type="radio" name="payment" value="einvoice" /> E-Invoice</label>
       <label><input type="radio" name="payment" value="creditcard" /> Credit Card</label>
-<BR>
+
+      <h3>Venue:</h3>
+      <label><input type="checkbox" name="venueRequired" id="venueRequired" value="required" />Venue required</label>
   <BR>
       <button class="button" onclick="applyFilters()">Apply Filters</button>
       <button class="button reset" onclick="resetFilters()">Reset Filters</button>
@@ -52,9 +54,7 @@
 
 <!-- Right panel section (inside <main class="right-panel">) -->
 <main class="right-panel">
-  <!-- <div id="selectionSummary">hello</div> -->
-  <!-- <div id="eventCount" style="margin-bottom: 10px; font-weight: bold;"></div>
-  <div id="eventPagination" class="event-pagination"></div> -->
+
 <div style="display: flex; justify-content: space-between; align-items: center;">
   <div id="eventCount" style="margin-bottom: 10px; font-weight: bold;"></div>
   <div id="eventPagination" class="event-pagination"></div>
@@ -62,12 +62,7 @@
 
   <table id="eventTable" class="event-table"></table>
   
-  <div class="pagination">
-    <!-- <button class="button" onclick="prevPage()">Prev</button>
-    <button class="button" onclick="nextPage()">Next</button> -->
- 
-  </div> 
-
+  <div class="pagination"></div> 
   
 </main>
 </div>
