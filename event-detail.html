@@ -85,11 +85,11 @@
     <div class="form-desc"><strong>Fill in the form below to receive an instant quotation for your event!</strong></div>
     <form id="quotationForm">
       <div class="form-row">
-        <label for="eventDate">Date of Event (mm/dd/yyyy):</label>
+        <label for="eventDate">Date of Event (mm/dd/yyyy): <span style="color: red;">*</span></label>
         <input id="eventDate" type="date" required onchange="checkFormFields()"/>
       </div>
       <div class="form-row">
-        <label for="participants">Number of Participants:</label>
+        <label for="participants">Number of Participants: <span style="color: red;">*</span></label>
         <input id="participants" type="number" required placeholder="Enter number of participants" required onchange="checkFormFields()"/>
       </div>
       <div class="form-row">
@@ -97,7 +97,7 @@
         <input id="budget" type="number" placeholder="Enter total cost" required />
       </div>
       <div class="form-row">
-        <label for="email">Email Address:</label>
+        <label for="email">Email Address:<span style="color: red;">*</span></label>
         <input id="email" type="email" required placeholder="Enter your email address" required onchange="checkFormFields()"/>
       </div>
       <!-- Add other form fields as needed -->

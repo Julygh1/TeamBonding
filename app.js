@@ -38,7 +38,7 @@ function renderEvents() {
 // to show eventcount start
 const eventCountDiv = document.getElementById("eventCount");
 if (filteredEvents.length === 0) {
-  eventCountDiv.textContent = "No events found matching your criteria. Please adjust your filters or reset to see all events.";
+  eventCountDiv.textContent = "No events found matching your criteria. Please change your selections/filters or reset to see all events.";
   // Optionally, clear the event table
   document.getElementById("eventTable").innerHTML = "";
   // Optionally, hide pagination
@@ -47,7 +47,7 @@ if (filteredEvents.length === 0) {
 } else if (filteredEvents.length < events.length) {
   eventCountDiv.textContent = `Showing ${filteredEvents.length} matching events out of ${events.length} events`;
 } else {
-  eventCountDiv.textContent = `Showing all ${events.length} events`;
+  eventCountDiv.textContent = `Showing all ${events.length} events (by latest event added)`;
 }
 
 
@@ -58,7 +58,22 @@ renderPagination(currentPage, totalPages);
   const container = document.getElementById("eventTable");
   container.innerHTML = "";
 
-  const sortedEvents = [...filteredEvents].sort((a, b) => a.name.localeCompare(b.name));
+function parseDateString(dateStr) {
+  // For dd/mm/yyyy or dd-mm-yyyy
+  const parts = dateStr.split(/[\/\-]/);
+  if (parts.length === 3) {
+    const [dd, mm, yyyy] = parts;
+    return new Date(`${yyyy}-${mm}-${dd}`);
+  }
+  // fallback for ISO or other formats
+  return new Date(dateStr);
+}
+
+const sortedEvents = [...filteredEvents].sort(
+  (a, b) => parseDateString(b.eventaddeddate) - parseDateString(a.eventaddeddate)
+);
+
+ // const sortedEvents = [...filteredEvents].sort((a, b) => a.name.localeCompare(b.name));
   const start = currentPage * 6;
   const end = start + 6;
   const pageEvents = sortedEvents.slice(start, end);

@@ -14,13 +14,14 @@ const events = [
     organiser_name: "PartyMojo",
     organiser_website: "https://partymojo.com.sg/",
     organiser_contact: "+65 6569 6992",	
-    organiser_email: "Sales@partymojo.com.sg"
+    organiser_email: "Sales@partymojo.com.sg",
+    eventaddeddate : "06/10/2023"
   },
   {
     event_id: "EVT002",
     name: "Terrarium Making Workshop",
     description: "Build your own cute miniature garden or forest with this kids friendly terrarium making workshop. It’s pretty, it’s fun, it’s self sustainable. Perfect for team bonding and corporate events.",
-    capacity: 50,
+    capacity: 40,
     venue: "Suntect City Singapore",
     event_hour: 4,
     category: "workshop",
@@ -30,7 +31,8 @@ const events = [
     organiser_name: "PartyMojo",
     organiser_website: "https://partymojo.com.sg/",
     organiser_contact: "+65 6569 6992",	
-    organiser_email: "Sales@partymojo.com.sg"
+    organiser_email: "Sales@partymojo.com.sg",
+    eventaddeddate : "15/10/2024"
   },
   {
     event_id: "EVT003",
@@ -46,7 +48,8 @@ const events = [
     organiser_name: "PartyMojo",
     organiser_website: "https://partymojo.com.sg/",
     organiser_contact: "+65 6569 6992",	
-    organiser_email: "Sales@partymojo.com.sg"
+    organiser_email: "Sales@partymojo.com.sg",
+    eventaddeddate : "06/11/2022"
   },
   {
     event_id: "EVT004",
@@ -62,7 +65,8 @@ const events = [
     organiser_name: "Funworks",
     organiser_website: "https://funworks.sg/",
     organiser_contact: "+65 6743 3077",
-    organiser_email: "hello@funworks.sg"
+    organiser_email: "hello@funworks.sg",
+    eventaddeddate : "08/08/2024"
   },
   {
     event_id: "EVT005",
@@ -78,7 +82,8 @@ const events = [
     organiser_name: "Funworks",
     organiser_website: "https://funworks.sg/",
     organiser_contact: "+65 6743 3077",
-    organiser_email: "hello@funworks.sg"
+    organiser_email: "hello@funworks.sg",
+    eventaddeddate : "08/09/2024"
   },
   {
     event_id: "EVT006",
@@ -94,7 +99,8 @@ const events = [
     organiser_name: "Funworks",
     organiser_website: "https://funworks.sg/",
     organiser_contact: "+65 6743 3077",
-    organiser_email: "hello@funworks.sg"
+    organiser_email: "hello@funworks.sg",
+    eventaddeddate : "08/09/2022"
   },
   {
     event_id: "EVT007",
@@ -110,13 +116,14 @@ const events = [
     organiser_name: "The Meet Up SG",
     organiser_website: "https://www.themeetupsg.com/",
     organiser_contact: "+65 8793 0476",
-    organiser_email: "enquiries@themeetupsg.com"
+    organiser_email: "enquiries@themeetupsg.com",
+    eventaddeddate : "18/08/2024"
   },
   {
     event_id: "EVT008",
     name: "Cruise SG",
     description: "4 hours of cruise in SG to enjoy the sea view with tea break.",
-    capacity: 50,
+    capacity: 38,
     venue: "Cruise Singapore",
     event_hour: 8,
     category: "adventure",
@@ -126,7 +133,8 @@ const events = [
     organiser_name: "The Meet Up SG",
     organiser_website: "https://www.themeetupsg.com/",
     organiser_contact: "+65 8793 0476",
-    organiser_email: "enquiries@themeetupsg.com"
+    organiser_email: "enquiries@themeetupsg.com",
+    eventaddeddate : "08/10/2024"
   },
   {
     event_id: "EVT009",
@@ -142,13 +150,14 @@ const events = [
     organiser_name: "The Meet Up SG",
     organiser_website: "https://www.themeetupsg.com/",
     organiser_contact: "+65 8793 0476",
-    organiser_email: "enquiries@themeetupsg.com"
+    organiser_email: "enquiries@themeetupsg.com",
+    eventaddeddate : "28/01/2024"
   },
   {
     event_id: "EVT010",
     name: "Combat Archery Tag",
     description: "Exhilarating and fast-paced game combining archery, paintball and dogdeball that will get your adrenaline pumping.",
-    capacity: 1000,
+    capacity: 120,
     venue: "Kallang Stadium",
     event_hour: 4,
     category: "game",
@@ -158,13 +167,14 @@ const events = [
     organiser_name: "FunEmpire",
  organiser_website: "https://www.funempire.com/",
     organiser_contact: "+65 6016 7147",
-    organiser_email: "hello@funempire.com"
+    organiser_email: "hello@funempire.com",
+    eventaddeddate : "07/09/2024"
   },
   {
     event_id: "EVT011",
     name: "Bubble Soccer",
     description: "Bounce your way to victory with the fun-filled action of Bubble Soccer. Bump your opponents without getting a red card.",
-    capacity: 1000,
+    capacity: 180,
     venue: "Kallang Stadium",
     event_hour: 4,
     category: "game",
@@ -174,7 +184,8 @@ const events = [
     organiser_name: "FunEmpire",
  organiser_website: "https://www.funempire.com/",
     organiser_contact: "+65 6016 7147",
-    organiser_email: "hello@funempire.com"
+    organiser_email: "hello@funempire.com",
+    eventaddeddate : "08/02/2023"
   },
   {
     event_id: "EVT012",
@@ -190,13 +201,14 @@ const events = [
     organiser_name: "FunEmpire",
  organiser_website: "https://www.funempire.com/",
     organiser_contact: "+65 6016 7147",
-    organiser_email: "hello@funempire.com"
+    organiser_email: "hello@funempire.com",
+    eventaddeddate : "18/06/2023"
   },
   {
     event_id: "EVT013",
     name: "Corporate Dragonboat Teambonding",
     description: "Whether you’re aiming for team cohesion or a competitive race, our Dragonboat Challenge can be customized to meet your goals. Engage in teamwork, strategy, and communication as your team paddles to victory. Ideal for fostering collaboration and camaraderie, this activity culminates in an exhilarating team race that leaves everyone unified.",
-    capacity: 200,
+    capacity: 300,
     venue: "Sentosa",
     event_hour: 4,
     category: "adventure",
@@ -206,13 +218,14 @@ const events = [
     organiser_name: "Focus Adventure",
  organiser_website: "https://focusadventure.com/",
     organiser_contact: "+65 6278 6560",
-    organiser_email: "info@FOCUSAdventure.com"
+    organiser_email: "info@FOCUSAdventure.com",
+    eventaddeddate : "01/10/2022"
   },
   {
     event_id: "EVT014",
     name: "The Kayaking Challenge",
     description: "Our kayaking expeditions encourage teams to work together, develop leadership skills, and build trust as they paddle through scenic routes.",
-    capacity: 200,
+    capacity: 300,
     venue: "Sentosa",
     event_hour: 4,
     category: "adventure",
@@ -222,7 +235,8 @@ const events = [
     organiser_name: "Focus Adventure",
  organiser_website: "https://focusadventure.com/",
     organiser_contact: "+65 6278 6560",
-    organiser_email: "info@FOCUSAdventure.com"
+    organiser_email: "info@FOCUSAdventure.com",
+    eventaddeddate : "19/09/2022"
   }
 ,
   {
@@ -239,7 +253,8 @@ const events = [
     organiser_name: "Focus Adventure",
  organiser_website: "https://focusadventure.com/",
     organiser_contact: "+65 6278 6560",
-    organiser_email: "info@FOCUSAdventure.com"
+    organiser_email: "info@FOCUSAdventure.com",
+    eventaddeddate : "17/03/2023"
   }
   
 ];

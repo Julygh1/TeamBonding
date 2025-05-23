@@ -73,16 +73,38 @@ document.addEventListener("DOMContentLoaded", function() {
   let feedbackPage = 1;
   const feedbacksPerPage = 3;
 
+
+//convert feedbacks date to dd/mm/yyyy
+
+function parseDateString(dateStr) {
+  // Try ISO first
+  let d = new Date(dateStr);
+  if (!isNaN(d)) return d;
+
+  // Try dd/mm/yyyy
+  const parts = dateStr.split(/[\/\-]/);
+  if (parts.length === 3) {
+    // dd/mm/yyyy or dd-mm-yyyy
+    const [dd, mm, yyyy] = parts;
+    return new Date(`${yyyy}-${mm}-${dd}`);
+  }
+  return new Date(NaN); // Invalid date
+}
+
 function renderFeedbacks() {
     // const eventFeedbacks = feedbacks
     //   .filter(fb => fb.event_id === eventId)
     //   .sort((a, b) => b.star - a.star);
 
-    const eventFeedbacks = feedbacks
-      .filter(fb => fb.event_id === eventId)
-      .sort((a, b) => new Date(b.feedbackdate) - new Date(a.feedbackdate));
+    // const eventFeedbacks = feedbacks
+    //   .filter(fb => fb.event_id === eventId)
+    //   .sort((a, b) => new Date(b.feedbackdate) - new Date(a.feedbackdate));
 
-    const feedbackContainer = document.getElementById("feedbackContainer");
+    const eventFeedbacks = feedbacks
+  .filter(fb => fb.event_id === eventId)
+  .sort((a, b) => parseDateString(b.feedbackdate) - parseDateString(a.feedbackdate));  
+    
+  const feedbackContainer = document.getElementById("feedbackContainer");
     feedbackContainer.innerHTML = "";
 
     const start = (feedbackPage - 1) * feedbacksPerPage;
@@ -99,7 +121,8 @@ function renderFeedbacks() {
       fbDiv.innerHTML = `
         
         <strong>${fb.comp_name}</strong> (⭐ ${fb.star})<br>
-        <span>${fb.feedbackdate}</span>
+      
+        <span> ${fb.feedbackdate}</span>
         <p id="${descId}">
           ${isLong ? shortText + '...' : fb.description}
           ${isLong ? `<a href="#" class="read-more" data-full="${encodeURIComponent(fb.description)}" data-id="${descId}">Read more</a>` : ''}
